@@ -66,6 +66,7 @@ static void pressure_sensor()
  */
 static void send_packet()
 {
+    
     uint16_t ret;
     static uint8_t num = 0;
 
@@ -208,8 +209,10 @@ static void handle_cmd(handler_arg_t arg)
             send_packet();
             break;
         case 'b':
-            send_big_packet();
-            break;
+            for(;;)
+            {
+                send_big_packet();
+        }  break;
         case 'e':
             leds_action();
             break;
